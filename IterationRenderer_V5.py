@@ -64,15 +64,13 @@ def startUpVisibility(all):
 		CurChildVis = []
 		for child in object.getChildren():
 			CurChildVis.append(child.visible)
-	
 	childVis[object.name] = CurChildVis  
-	#print(f"Object: {object.name} set to {object.visible}")
+	
 
 def recoverVisibility():
 	all = mset.getAllObjects()
 	for object in all :
 		if object.name in pstState.keys():
-			#print(f"object: {object.name} found in dict")
 			object.visible = pstState[object.name]
 		else:
 			print(f"Object: {object.name} visibility could not be recovered")
@@ -122,7 +120,6 @@ def UpdateType():
 	global childrenOfFolders
 	childrenOfFolders = []
 	
-	# number of times element exists in list
 	# Get Folders that are defined by _folder
 	for object in allObjects:
 		#if isinstance(object, mset.SubMeshObject): 
@@ -142,7 +139,6 @@ def UpdateType():
 				skybox = object
 
 	UpdateFolderObject()
-	#CalculateCombinations()
 	
 	if raritySet:
 		CheckRarity()
@@ -157,7 +153,6 @@ def UpdateFolderObject():
 				folderIgnoreList.addItem(object.name)
 				folderIgnoreListFunc.append(object.name)
 				childrenOfFolders.append(object.getChildren())
-				#print("Added Children of " + object.name + " to the List")
 
 def CalculateCombinations():
 	global combs
